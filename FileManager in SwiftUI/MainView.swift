@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct MainView: View {
     
     // MARK: - Properties
     @ObservedObject var dataProvider: DataProvider
@@ -32,6 +32,6 @@ struct ContentView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView(dataProvider: DataProvider.shared)
+        MainView(dataProvider: DataProvider.shared)
     }
 }
