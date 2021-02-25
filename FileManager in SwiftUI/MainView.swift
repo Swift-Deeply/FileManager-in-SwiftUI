@@ -11,6 +11,9 @@ struct MainView: View {
     
     // MARK: - Properties
     @ObservedObject var dataProvider: DataProvider
+    @State private var alertShowing = false
+    @State var noteTitle: String?
+    @State var noteDescription: String?
     
     // MARK: - UI Elements
     var body: some View {
@@ -20,9 +23,12 @@ struct MainView: View {
                     Text("\(note.title)")
                 }
             }
+            .textFieldAlert(isPresented: $alertShowing) {
+                TextFieldAlert(title: "wpefk", message: "oefpowkefopew", noteTitle: $noteTitle, noteDescription: $noteDescription)
+            }
             .navigationTitle("Notes")
             .navigationBarItems(trailing: Button(action: {
-                
+                alertShowing = true
             }) {
                 Image(systemName: "plus.circle.fill")
             })
