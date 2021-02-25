@@ -10,12 +10,17 @@ import Combine
 
 class TextFieldAlertViewController: UIViewController {
 
+    // MARK: - Properties
+    private let alertTitle: String
+    private let message: String?
+    private var isPresented: Binding<Bool>?
+
+    private var subscription: AnyCancellable?
+    
     // MARK: - Life Cycle
-    init(title: String, message: String?, noteTitle: Binding<String?>, noteDescription: Binding<String?>, isPresented: Binding<Bool>?) {
+    init(title: String, message: String?, isPresented: Binding<Bool>?) {
         self.alertTitle = title
         self.message = message
-        self._noteTitle = noteTitle
-        self._noteDescription = noteDescription
         self.isPresented = isPresented
         
         super.init(nibName: nil, bundle: nil)
@@ -24,14 +29,6 @@ class TextFieldAlertViewController: UIViewController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    private let alertTitle: String
-    private let message: String?
-    @Binding private var noteTitle: String?
-    @Binding private var noteDescription: String?
-    private var isPresented: Binding<Bool>?
-
-    private var subscription: AnyCancellable?
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -42,33 +39,24 @@ class TextFieldAlertViewController: UIViewController {
     // MARK: - Methods
     private func presentAlertController() {
         guard subscription == nil else { return }
-        let vc = UIAlertController(title: alertTitle, message: message, preferredStyle: .alert)
+        let ac = UIAlertController(title: alertTitle, message: message, preferredStyle: .alert)
         
-        vc.addTextField { [weak self] textField in
-            guard let self = self else { return }
-            self.subscription = NotificationCenter.default
-                                    .publisher(for: UITextField.textDidChangeNotification, object: textField)
-                                    .map { ($0.object as? UITextField)?.text }
-                                    .assign(to: \.noteTitle, on: self)
-        }
-        
-        vc.addTextField { [weak self] textField in
-            guard let self = self else { return }
-            self.subscription = NotificationCenter.default
-                                    .publisher(for: UITextField.textDidChangeNotification, object: textField)
-                                    .map { ($0.object as? UITextField)?.text }
-                                    .assign(to: \.noteDescription, on: self)
-        }
+        ac.addTextField()
+        ac.addTextField()
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { [weak self] _ in
             self?.isPresented?.wrappedValue = false
         }
-        let createAction = UIAlertAction(title: "Create", style: .default) { (<#UIAlertAction#>) in
-            <#code#>
+        let createAction = UIAlertAction(title: "Create", style: .default) { [unowned ac] _ in
+            let title = ac.textFields![0].text!
+            let description = ac.textFields![1].text!
+            let note = Note(title: title, description: description)
+            
+            DataProvider.shared.create(note: note)
         }
         
-        vc.addAction(cancelAction)
-        vc.addAction(createAction)
-        present(vc, animated: true, completion: nil)
+        ac.addAction(cancelAction)
+        ac.addAction(createAction)
+        present(ac, animated: true, completion: nil)
     }
 }

@@ -12,8 +12,6 @@ struct MainView: View {
     // MARK: - Properties
     @ObservedObject var dataProvider: DataProvider
     @State private var alertShowing = false
-    @State var noteTitle: String?
-    @State var noteDescription: String?
     
     // MARK: - UI Elements
     var body: some View {
@@ -24,9 +22,9 @@ struct MainView: View {
                 }
             }
             .textFieldAlert(isPresented: $alertShowing) {
-                TextFieldAlert(title: "wpefk", message: "oefpowkefopew", noteTitle: $noteTitle, noteDescription: $noteDescription)
+                TextFieldAlert(title: "wpefk", message: "oefpowkefopew")
             }
-            .navigationTitle("Notes")
+            .navigationTitle(Text("Notes"))
             .navigationBarItems(trailing: Button(action: {
                 alertShowing = true
             }) {
