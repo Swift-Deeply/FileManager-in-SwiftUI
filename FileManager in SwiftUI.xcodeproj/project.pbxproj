@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A30BB0D25EA935C00FE35FF /* NoteListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A30BB0C25EA935C00FE35FF /* NoteListCell.swift */; };
 		3A7F0FE725D6ECEB00D16F44 /* FileManager_in_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7F0FE625D6ECEB00D16F44 /* FileManager_in_SwiftUIApp.swift */; };
 		3A7F0FE925D6ECEB00D16F44 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A7F0FE825D6ECEB00D16F44 /* MainView.swift */; };
 		3A7F0FEB25D6ECED00D16F44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3A7F0FEA25D6ECED00D16F44 /* Assets.xcassets */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3A30BB0C25EA935C00FE35FF /* NoteListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteListCell.swift; sourceTree = "<group>"; };
 		3A7F0FE325D6ECEB00D16F44 /* FileManager in SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FileManager in SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A7F0FE625D6ECEB00D16F44 /* FileManager_in_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager_in_SwiftUIApp.swift; sourceTree = "<group>"; };
 		3A7F0FE825D6ECEB00D16F44 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
@@ -67,6 +69,7 @@
 				3A7F0FE625D6ECEB00D16F44 /* FileManager_in_SwiftUIApp.swift */,
 				3A88756525E82A9300A4705A /* Note.swift */,
 				3A7F0FE825D6ECEB00D16F44 /* MainView.swift */,
+				3A30BB0C25EA935C00FE35FF /* NoteListCell.swift */,
 				3A88756F25E8344D00A4705A /* TextFieldAlert.swift */,
 				3A88756B25E832DB00A4705A /* TextFieldAlertViewContoller.swift */,
 				3A88757625E834D700A4705A /* TextFieldWrapper.swift */,
@@ -157,6 +160,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A88756C25E832DB00A4705A /* TextFieldAlertViewContoller.swift in Sources */,
+				3A30BB0D25EA935C00FE35FF /* NoteListCell.swift in Sources */,
 				3A88756225E8297400A4705A /* DataProvider.swift in Sources */,
 				3A7F0FE925D6ECEB00D16F44 /* MainView.swift in Sources */,
 				3A88757725E834D700A4705A /* TextFieldWrapper.swift in Sources */,

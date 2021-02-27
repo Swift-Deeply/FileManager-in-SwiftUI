@@ -12,6 +12,7 @@ struct MainView: View {
     // MARK: - Properties
     @ObservedObject var dataProvider: DataProvider
     @State private var alertShowing = false
+    @State private var editMode: EditMode = .active
     
     // MARK: - UI Elements
     var body: some View {
@@ -21,15 +22,25 @@ struct MainView: View {
                     Text("\(note.title)")
                 }
             }
+            .navigationTitle(Text("Notes"))
+            .navigationBarItems(
+                leading: Button(action: {
+                    editMode = .active
+                }) {
+                    Text("Edit")
+                },
+                
+                trailing: Button(action: {
+                    alertShowing = true
+                }) {
+                    Image(systemName: "plus.circle.fill")
+                }
+            )
             .textFieldAlert(isPresented: $alertShowing) {
                 TextFieldAlert(title: "wpefk", message: "oefpowkefopew")
             }
-            .navigationTitle(Text("Notes"))
-            .navigationBarItems(trailing: Button(action: {
-                alertShowing = true
-            }) {
-                Image(systemName: "plus.circle.fill")
-            })
+            .listStyle(InsetListStyle())
+            .environment(\.editMode, $editMode)
         }
     }
 }
