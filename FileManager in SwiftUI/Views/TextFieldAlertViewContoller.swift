@@ -41,8 +41,12 @@ class TextFieldAlertViewController: UIViewController {
         guard subscription == nil else { return }
         let ac = UIAlertController(title: alertTitle, message: message, preferredStyle: .alert)
         
+        ac.view.tintColor = .red
+        
         ac.addTextField()
         ac.addTextField()
+        ac.textFields![0].placeholder = "Title"
+        ac.textFields![1].placeholder = "Description"
 
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { [weak self] _ in
             self?.isPresented?.wrappedValue = false

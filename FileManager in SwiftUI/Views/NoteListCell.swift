@@ -14,7 +14,13 @@ struct NoteListCell: View {
     
     // MARK: - UI Elements
     var body: some View {
-        Text("\(note.title)")
+        VStack(alignment: .leading) {
+            Text("\(note.title)")
+                .font(.headline)
+            
+            Text("\(note.description)")
+                .font(.footnote)
+        }
     }
 }
 
