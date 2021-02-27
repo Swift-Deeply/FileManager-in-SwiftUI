@@ -27,18 +27,24 @@ struct MainView: View {
             .navigationTitle(Text("Notes"))
             .navigationBarItems(
                 leading: EditButton(),
-                
                 trailing: Button(action: {
-                    alertShowing = true
+                    if alertShowing {
+                        alertShowing = false
+                    } else {
+                        alertShowing = true
+                    }
                 }) {
                     Image(systemName: "plus.circle.fill")
                 }
             )
             .textFieldAlert(isPresented: $alertShowing) {
-                TextFieldAlert(title: "wpefk", message: "oefpowkefopew")
+                TextFieldAlert(title: "Write a note!", message: nil)
             }
             .listStyle(InsetListStyle())
             .environment(\.editMode, $editMode)
+        }
+        .onDisappear {
+            alertShowing.toggle()
         }
     }
 }
