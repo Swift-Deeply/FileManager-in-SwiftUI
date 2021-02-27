@@ -56,10 +56,13 @@ class DataProvider: ObservableObject {
         setNotes()
     }
     
-    func delete(note: Note) {
-        if let index = allNotes.firstIndex(where: { $0.id == note.id }) {
-            allNotes.remove(at: index)
-        }
+    func delete(_ offsets: IndexSet) {
+        allNotes.remove(atOffsets: offsets)
+        setNotes()
+    }
+    
+    func move(source: IndexSet, destination: Int) {
+        allNotes.move(fromOffsets: source, toOffset: destination)
         setNotes()
     }
 }
