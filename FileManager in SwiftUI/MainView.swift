@@ -21,8 +21,8 @@ struct MainView: View {
                 ForEach(dataProvider.allNotes) { note in
                     NoteListCell(note: note)
                 }
-                .onDelete(perform: onDelete)
-                .onMove(perform: onMove)
+                .onDelete(perform: dataProvider.delete)
+                .onMove(perform: dataProvider.move)
             }
             .navigationTitle(Text("Notes"))
             .navigationBarItems(
@@ -40,15 +40,6 @@ struct MainView: View {
             .listStyle(InsetListStyle())
             .environment(\.editMode, $editMode)
         }
-    }
-    
-    // MARK: - Methods
-    private func onDelete(offsets: IndexSet) {
-        dataProvider.delete(offsets)
-    }
-
-    private func onMove(source: IndexSet, destination: Int) {
-        dataProvider.move(source: source, destination: destination)
     }
 }
 
