@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+///
 struct NoteListCell: View {
     
     // MARK: - Properties
@@ -26,6 +27,6 @@ struct NoteListCell: View {
 
 struct NoteListCell_Previews: PreviewProvider {
     static var previews: some View {
-        NoteListCell(note: Note(title: "", description: ""))
+        NoteListCell(note: Note(title: "Go to Apple Store", description: "Buy an iPhone 12 Pro Max 256GB"))
     }
 }

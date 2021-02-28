@@ -10,20 +10,25 @@ import Foundation
 class DataProvider: ObservableObject {
     
     // MARK: - Propeties
+    ///
     static let shared = DataProvider()
     private let dataSourceURL: URL
     @Published var allNotes = [Note]()
     
     // MARK: - Life Cycle
+    ///
     init() {
+        ///
         let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
         let notesPath = documentsPath.appendingPathComponent("notes").appendingPathExtension("plist")
         dataSourceURL = notesPath
         
-        _allNotes = Published(initialValue: getAllNotes())
+        ///
+        _allNotes = Published(wrappedValue: getAllNotes())
     }
     
     // MARK: - Methods
+    ///
     private func getAllNotes() -> [Note] {
         do {
             let decoder = PropertyListDecoder()
@@ -36,6 +41,7 @@ class DataProvider: ObservableObject {
         }
     }
     
+    ///
     private func setNotes() {
         do {
             let encoder = PropertyListEncoder()
@@ -46,21 +52,25 @@ class DataProvider: ObservableObject {
         }
     }
     
+    ///
     func create(note: Note) {
         allNotes.insert(note, at: 0)
         setNotes()
     }
     
+    ///
     func changeNote(note: Note, index: Int) {
         allNotes[index] = note
         setNotes()
     }
     
+    ///
     func delete(_ offsets: IndexSet) {
         allNotes.remove(atOffsets: offsets)
         setNotes()
     }
     
+    /// To
     func move(source: IndexSet, destination: Int) {
         allNotes.move(fromOffsets: source, toOffset: destination)
         setNotes()

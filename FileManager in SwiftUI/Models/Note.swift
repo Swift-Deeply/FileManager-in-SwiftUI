@@ -7,6 +7,7 @@
 
 import Foundation
 
+///
 struct Note: Codable, Identifiable {
     
     // MARK: - Properties

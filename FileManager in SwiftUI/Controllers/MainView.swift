@@ -10,6 +10,7 @@ import SwiftUI
 struct MainView: View {
 
     // MARK: - Properties
+    ///
     @ObservedObject var dataProvider: DataProvider
     @State private var alertShowing = false
     @State private var editMode: EditMode = .inactive
@@ -21,18 +22,23 @@ struct MainView: View {
                 ForEach(dataProvider.allNotes) { note in
                     NoteListCell(note: note)
                 }
+                ///
                 .onDelete(perform: dataProvider.delete)
                 .onMove(perform: dataProvider.move)
             }
             .navigationTitle(Text("Notes"))
             .navigationBarItems(
+                ///
                 leading: EditButton(),
                 trailing: AddButton(editMode: $editMode, alertShowing: $alertShowing)
             )
+            ///
             .textFieldAlert(isPresented: $alertShowing) {
                 TextFieldAlert(title: "Write a note!", message: nil)
             }
+            ///
             .listStyle(InsetListStyle())
+            ///
             .environment(\.editMode, $editMode)
         }
     }
@@ -40,6 +46,7 @@ struct MainView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
+        ///
         MainView(dataProvider: DataProvider.shared)
     }
 }

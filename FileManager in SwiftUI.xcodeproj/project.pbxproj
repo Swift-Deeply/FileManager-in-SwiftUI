@@ -88,18 +88,10 @@
 		3A1F1BE125EAADEA006739C2 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				3A1F1BE225EAADF0006739C2 /* Extensions */,
 				3A88756125E8297400A4705A /* DataProvider.swift */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
-		3A1F1BE225EAADF0006739C2 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
 				3A88757225E8349500A4705A /* View+Ext.swift */,
 			);
-			path = Extensions;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		3A1F1BE325EAAE07006739C2 /* Sources */ = {
