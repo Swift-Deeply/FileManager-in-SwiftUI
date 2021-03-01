@@ -20,7 +20,7 @@ class DataProvider: ObservableObject {
     init() {
         ///
         let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let notesPath = documentsPath.appendingPathComponent("notes").appendingPathExtension("plist")
+        let notesPath = documentsPath.appendingPathComponent("notes").appendingPathExtension("json")
         dataSourceURL = notesPath
         
         ///
