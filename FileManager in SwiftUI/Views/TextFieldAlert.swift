@@ -15,13 +15,11 @@ struct TextFieldAlert {
     var isPresented: Binding<Bool>? = nil
 
     // MARK: - Methods
-    ///
     func dismissable(_ isPresented: Binding<Bool>) -> TextFieldAlert {
         TextFieldAlert(title: title, message: message, isPresented: isPresented)
     }
 }
 
-///
 extension TextFieldAlert: UIViewControllerRepresentable {
 
     typealias UIViewControllerType = TextFieldAlertViewController

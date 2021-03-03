@@ -10,13 +10,11 @@ import SwiftUI
 struct AddButton: View {
 
     // MARK: - Properties
-    ///
     @Binding var editMode: EditMode
     @Binding var alertShowing: Bool
 
     // MARK: - UI Elements
     var body: some View {
-        ///
         if editMode == .inactive {
             return AnyView(Button(action: {
                     withAnimation {
@@ -30,7 +28,6 @@ struct AddButton: View {
                     Image(systemName: "plus.circle.fill")
                 })
         } else {
-            ///
             return AnyView(EmptyView())
         }
     }

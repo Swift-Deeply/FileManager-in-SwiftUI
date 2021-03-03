@@ -6,10 +6,8 @@
 //
 
 import SwiftUI
-///
 import Combine
 
-///
 class TextFieldAlertViewController: UIViewController {
 
     // MARK: - Properties
