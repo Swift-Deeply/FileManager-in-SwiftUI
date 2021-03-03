@@ -42,7 +42,7 @@ class DataProvider: ObservableObject {
     }
     
     ///
-    private func setNotes() {
+    private func saveNotes() {
         do {
             let encoder = PropertyListEncoder()
             let data = try encoder.encode(allNotes)
@@ -55,24 +55,24 @@ class DataProvider: ObservableObject {
     ///
     func create(note: Note) {
         allNotes.insert(note, at: 0)
-        setNotes()
+        saveNotes()
     }
     
     ///
     func changeNote(note: Note, index: Int) {
         allNotes[index] = note
-        setNotes()
+        saveNotes()
     }
     
     ///
     func delete(_ offsets: IndexSet) {
         allNotes.remove(atOffsets: offsets)
-        setNotes()
+        saveNotes()
     }
     
     /// To
     func move(source: IndexSet, destination: Int) {
         allNotes.move(fromOffsets: source, toOffset: destination)
-        setNotes()
+        saveNotes()
     }
 }
