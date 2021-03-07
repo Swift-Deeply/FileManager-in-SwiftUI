@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-///
 struct TextFieldWrapper<PresentingView: View>: View {
 
     // MARK: - Properties
