@@ -1,11 +1,12 @@
 # FileManager in SwiftUI
 Explore store data in SwiftUI
 
-* Create a New Project 
-* Preparing DataStore Class
-* Creating Custom Alert Object
-* Preparing the UI
+* What's FileManager?
+* How to Use FileManager in SwiftUI?
+* Use FileManager on a Simple SwiftUI Project
 
-You can find the article of this repo [here](https://betterprogramming.pub/crate-custom-alert-object-in-swiftui-bddf98923a1).
+You can find the article of this repo [here](https://betterprogramming.pub/filemanager-in-swiftui-44bc0f33995e).
+
+This repo includes the playground designed similar to the article.
 
 If you have problems or questions, you can email me at <contact.canbalkaya@gmail.com>.
